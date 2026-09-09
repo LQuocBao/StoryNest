@@ -1,6 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Hide footer completely on all admin portal routes
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <footer className="w-full border-t border-[var(--card-border)] py-8 px-4 text-center text-xs text-[var(--muted-text)] mt-auto bg-[var(--background)]">
       <div className="max-w-2xl mx-auto space-y-3">
@@ -15,7 +25,7 @@ export default function Footer() {
           </Link>
         </p>
 
-        {/* Legal and policy links matching screenshot */}
+        {/* Legal and policy links */}
         <nav
           aria-label="Footer Navigation"
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-medium"
@@ -47,13 +57,6 @@ export default function Footer() {
             className="hover:text-[var(--foreground)] transition-colors"
           >
             RSS Feed
-          </Link>
-          <span>•</span>
-          <Link
-            href="/admin"
-            className="hover:text-[var(--accent)] font-semibold transition-colors"
-          >
-            Admin CMS
           </Link>
         </nav>
 

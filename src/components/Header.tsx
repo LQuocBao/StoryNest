@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const pathname = usePathname();
 
-  // Hide general header on story reading pages to match exact reference design
-  if (pathname?.startsWith("/story/")) {
+  // Hide public header on story reading pages and all admin portal routes
+  if (pathname?.startsWith("/story/") || pathname?.startsWith("/admin")) {
     return null;
   }
 
