@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
 import {
   SITE_URL,
   SITE_NAME,
@@ -116,7 +115,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] transition-colors duration-200">
-        <CustomCursor />
         <Header />
         <main className="flex-1 w-full">{children}</main>
         <Footer />
