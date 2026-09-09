@@ -5,6 +5,7 @@ import { DashboardAnalytics } from "@/components/admin/DashboardAnalytics";
 import { api } from "@/lib/api";
 import {
   BookOpen,
+  Layers,
   Tag,
   Eye,
   Heart,
@@ -35,6 +36,13 @@ export default async function AdminDashboardPage() {
       icon: BookOpen,
       color: "text-haven-primary bg-haven-primary/10",
       href: "/admin/stories",
+    },
+    {
+      title: "Fiction Series",
+      value: stats.totalSeries,
+      icon: Layers,
+      color: "text-purple-700 bg-purple-50",
+      href: "/admin/series",
     },
     {
       title: "Categories",

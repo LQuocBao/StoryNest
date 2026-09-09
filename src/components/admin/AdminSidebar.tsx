@@ -36,7 +36,8 @@ export const AdminSidebar: React.FC<{ isOpen?: boolean; onClose?: () => void }> 
     {
       title: 'Content',
       items: [
-        { href: '/admin/stories', label: 'Stories', icon: BookOpen },
+        { href: '/admin/stories', label: 'Stories & Chapters', icon: BookOpen },
+        { href: '/admin/series', label: 'Series', icon: Layers },
         { href: '/admin/categories', label: 'Categories', icon: Tag },
       ],
     },

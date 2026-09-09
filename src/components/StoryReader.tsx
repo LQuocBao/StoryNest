@@ -166,6 +166,20 @@ export default function StoryReader({ story }: StoryReaderProps) {
           </ol>
         </nav>
 
+        {/* Series Badge if applicable */}
+        {story.seriesTitle && (
+          <div className="mb-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold shadow-2xs">
+              <span>📖 Series: {story.seriesTitle}</span>
+              {story.chapterNumber && (
+                <span className="bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">
+                  Chapter {story.chapterNumber}
+                </span>
+              )}
+            </span>
+          </div>
+        )}
+
         {/* Title */}
         <h1 className="text-2xl sm:text-3xl md:text-[32px] font-black text-[#18181b] uppercase tracking-tight leading-[1.2] mb-3">
           {story.title}
@@ -266,6 +280,42 @@ export default function StoryReader({ story }: StoryReaderProps) {
             <span>→</span>
           </button>
         </div>
+
+        {/* Next / Previous Chapter Navigation Bar */}
+        {(story.nextChapter || story.prevChapter) && (
+          <div className="my-8 space-y-4">
+            {story.nextChapter && (
+              <div className="p-5 bg-gradient-to-r from-blue-900 via-indigo-950 to-blue-900 rounded-2xl text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-blue-800 animate-fadeIn">
+                <div className="space-y-1 text-center sm:text-left">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-300 bg-blue-800/60 px-2.5 py-0.5 rounded-full inline-block">
+                    Next in Series • Chapter {story.nextChapter.chapterNumber || 2}
+                  </span>
+                  <h4 className="text-sm sm:text-base font-extrabold text-white leading-snug">
+                    {story.nextChapter.title}
+                  </h4>
+                </div>
+                <Link
+                  href={`/story/${story.nextChapter.slug}`}
+                  className="shrink-0 bg-blue-500 hover:bg-blue-400 text-white font-black text-xs px-6 py-3 rounded-full shadow-lg transition-all active:scale-95 flex items-center gap-2 uppercase tracking-wider"
+                >
+                  <span>READ NEXT CHAPTER</span>
+                  <span>→</span>
+                </Link>
+              </div>
+            )}
+
+            {story.prevChapter && (
+              <div className="flex justify-start">
+                <Link
+                  href={`/story/${story.prevChapter.slug}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-600 hover:text-blue-600 bg-white border border-neutral-300 rounded-lg px-4 py-2 shadow-2xs hover:shadow-xs transition-all"
+                >
+                  <span>← Previous Chapter: {story.prevChapter.title}</span>
+                </Link>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Divider matching screenshot */}
         <hr className="border-t border-[#e2ddd5] my-8" />

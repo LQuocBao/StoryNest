@@ -1,5 +1,6 @@
 import {
   adminStories,
+  adminSeries,
   adminCategories,
   adminComments,
   adminReports,
@@ -14,7 +15,7 @@ import {
   AdminUser,
   SiteSettings,
 } from "@/types/admin";
-import { Story } from "@/types/story";
+import { Story, Series } from "@/types/story";
 
 export const api = {
   async getAdminStats(): Promise<AdminStats> {
@@ -23,6 +24,7 @@ export const api = {
 
     return {
       totalStories: adminStories.length,
+      totalSeries: adminSeries.length,
       totalCategories: adminCategories.length,
       totalViews,
       totalLikes,
@@ -33,6 +35,10 @@ export const api = {
 
   async getStories(): Promise<Story[]> {
     return adminStories;
+  },
+
+  async getSeries(): Promise<Series[]> {
+    return adminSeries;
   },
 
   async getCategories(): Promise<AdminCategory[]> {

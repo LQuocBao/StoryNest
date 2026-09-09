@@ -2,6 +2,7 @@ import { Story } from "./story";
 
 export interface AdminStats {
   totalStories: number;
+  totalSeries: number;
   totalCategories: number;
   totalViews: number;
   totalLikes: number;

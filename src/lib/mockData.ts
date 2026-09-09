@@ -1,4 +1,5 @@
 import { STORIES, CATEGORIES } from "@/data/stories";
+import { SERIES } from "@/data/series";
 import {
   AdminComment,
   AdminReport,
@@ -6,9 +7,10 @@ import {
   SiteSettings,
   AdminCategory,
 } from "@/types/admin";
-import { Story } from "@/types/story";
+import { Story, Series } from "@/types/story";
 
 export const adminStories: Story[] = [...STORIES];
+export const adminSeries: Series[] = [...SERIES];
 
 export const adminCategories: AdminCategory[] = CATEGORIES.map((c) => ({
   name: c.name,

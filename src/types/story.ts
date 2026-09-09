@@ -4,6 +4,13 @@ export interface StoryPart {
   paragraphs: string[];
 }
 
+export interface ChapterLink {
+  id: string;
+  slug: string;
+  title: string;
+  chapterNumber?: number;
+}
+
 export interface Story {
   id: string;
   slug: string;
@@ -16,9 +23,9 @@ export interface Story {
   publishedDate: string; // e.g., "September 7, 2026"
   publishedIso: string;  // ISO-8601
   modifiedIso?: string;
-  readingTime: string;   // e.g., "5 min read"
-  audioLength: string;   // e.g., "6 min audio"
-  location?: string;     // e.g., "Blue Mountains, NSW"
+  readingTime?: string;
+  audioLength?: string;
+  location?: string;
   author: {
     name: string;
     avatar: string;
@@ -31,4 +38,26 @@ export interface Story {
   likesCount: number;
   sharesCount: number;
   featured?: boolean;
+
+  // Series & Chapter Sequencing
+  seriesId?: string;
+  seriesTitle?: string;
+  seriesSlug?: string;
+  chapterNumber?: number;
+  prevChapter?: ChapterLink;
+  nextChapter?: ChapterLink;
+}
+
+export interface Series {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  coverImage: string;
+  category: string;
+  categorySlug: string;
+  totalChapters: number;
+  viewsCount: number;
+  status: "Ongoing" | "Completed";
+  chapters?: ChapterLink[];
 }

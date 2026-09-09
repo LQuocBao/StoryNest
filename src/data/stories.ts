@@ -108,6 +108,16 @@ export const STORIES: Story[] = [
     likesCount: 3410,
     sharesCount: 1120,
     featured: true,
+    seriesId: "series-1",
+    seriesTitle: "The Darling Downs Farm Saga",
+    seriesSlug: "the-darling-downs-farm-saga",
+    chapterNumber: 1,
+    nextChapter: {
+      id: "story-3",
+      slug: "part-2-twelve-year-old-girl-raised-notebook-aftermath",
+      title: "PART 2: A TWELVE-YEAR-OLD GIRL RAISED HER NOTEBOOK AT HER GRANDFATHER'S FARM...",
+      chapterNumber: 2,
+    },
   },
   {
     id: "story-3",
@@ -130,6 +140,16 @@ export const STORIES: Story[] = [
     },
     excerpt:
       "A TWELVE-YEAR-OLD GIRL RAISED HER NOTEBOOK AT HER GRANDFATHER'S FARM AUCTION. THEN CAME THE MORNING AFTER. The corporate executives thought they could bully a child with legal jargon...",
+    seriesId: "series-1",
+    seriesTitle: "The Darling Downs Farm Saga",
+    seriesSlug: "the-darling-downs-farm-saga",
+    chapterNumber: 2,
+    prevChapter: {
+      id: "story-2",
+      slug: "twelve-year-old-girl-raised-notebook-grandfather-farm-auction",
+      title: "A TWELVE-YEAR-OLD GIRL RAISED HER NOTEBOOK AT HER GRANDFATHER'S FARM AUCTION...",
+      chapterNumber: 1,
+    },
     parts: [
       {
         partNumber: 1,
